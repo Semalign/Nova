@@ -1,4 +1,4 @@
-📈 Stock Sentiment Correlation Dashboard
+###📈 Stock Sentiment Correlation Dashboard
 
 This project investigates the relationship between financial news sentiment and stock price movements for top tech companies. The analysis includes exploratory data analysis, technical indicators, sentiment scoring, correlation studies, and an interactive dashboard (ongoing).
 
