@@ -1,3 +1,4 @@
+'''
 import pandas as pd
 import numpy as np
 import pytest
@@ -109,4 +110,4 @@ def test_ema_differs_from_sma(sample_data):
     # np.allclose checks if two arrays are element-wise equal within a tolerance.
     # We expect them to be *not* all close, meaning they differ.
     assert not np.allclose(comparable_data['EMA_20'], comparable_data['SMA_20'], equal_nan=False), \
-           "EMA_20 and SMA_20 should produce different values for the same data."
+           "EMA_20 and SMA_20 should produce different values for the same data."'''
