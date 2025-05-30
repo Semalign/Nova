@@ -1,16 +1,31 @@
 name: Unit Tests
-on: [push, pull_request]
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+
 jobs:
-  test:
+  build:
+
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.9'
-      - name: Install dependencies
-        run: |
-          pip install -r requirements.txt
-      - name: Run tests
-        run: pytest tests/ -v
+    - uses: actions/checkout@v4
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.x' # Use your desired Python version, e.g., '3.9', '3.10', '3.11'
+        cache: 'pip' # Cache pip dependencies for faster builds
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pytest pandas numpy # Install pytest and any other project dependencies
+        # If you have a requirements.txt, use: pip install -r requirements.txt
+    - name: Run tests
+      run: |
+        pytest tests/ -v # Ensure this path points to your test files correctly
